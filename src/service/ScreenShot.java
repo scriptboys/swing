@@ -59,8 +59,8 @@ public class ScreenShot extends JFrame{
 			screenImage.setBorder(border);
 			screenImage.setIcon(new ImageIcon(img));
 			pm=new JPopupMenu();
-			confirm=new JMenuItem("±£´æ");
-			cancel=new JMenuItem("ÍË³ö½ØÆÁ");
+			confirm=new JMenuItem("ä¿å­˜");
+			cancel=new JMenuItem("é€€å‡ºæˆªå±");
 			dosomething=new JMenuItem("dosomething");
 			pm.add(confirm);
 			pm.add(cancel);
@@ -83,7 +83,7 @@ public class ScreenShot extends JFrame{
 			e.printStackTrace();
 		}	
 	}
-	//µ¯³ö²Ëµ¥µÄµã»÷ÊÂ¼ş
+	//å¼¹å‡ºèœå•çš„ç‚¹å‡»äº‹ä»¶
 	ActionListener actionListener=new ActionListener() {
 		public void actionPerformed(ActionEvent e) {
 			if(e.getSource()==cancel){
@@ -96,7 +96,6 @@ public class ScreenShot extends JFrame{
 					int result=chooser.showSaveDialog(null);
 					if(result==0){
 						File destFile=chooser.getSelectedFile();
-						
 						BufferedImage bi=getBufferedImage(destX, destY, screenImage.getX2()-destX, screenImage.getY2()-destY);
 						ImageIO.write(bi, "png", destFile);
 					}
@@ -107,7 +106,7 @@ public class ScreenShot extends JFrame{
 			}
 		}
 	};
-	//¼àÌı½ØÍ¼Ê±Êó±êÊÂ¼ş
+	//ç›‘å¬æˆªå›¾æ—¶é¼ æ ‡äº‹ä»¶
 	MouseAdapter mouseAdapter=new MouseAdapter() {
 		public void mousePressed(MouseEvent e){
 			screenImage.setBorder(null);
@@ -170,7 +169,7 @@ class LabelPaint extends JLabel{
 	protected void paintComponent(Graphics g) {
 		Graphics2D g2d=(Graphics2D) g;
 		super.paintComponent(g2d);
-		//ÉèÖÃ»­±Ê´ÖÏ¸
+		//è®¾ç½®ç”»ç¬”ç²—ç»†
 		g2d.setStroke(new BasicStroke(3.0f));
 		g2d.setColor(Color.red);
 		g2d.drawRect(getX1(), getY1(), getX2()-getX1(), getY2()-getY1());
